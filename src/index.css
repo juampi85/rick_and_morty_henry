@@ -5,6 +5,10 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+   background-image: url('https://c4.wallpaperflare.com/wallpaper/324/220/8/cielo-naturaleza-nubes-rojo-wallpaper-preview.jpg');
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+  min-height: 100vh;
 }
 
 code {
