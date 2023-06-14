@@ -6,17 +6,18 @@ const DivCard = styled.div`
   border-bottom-right-radius: 0.5rem;
   width: 15rem;
   position: relative;
-  margin-bottom: 1rem;
+  margin: 1rem .5rem;
+
 
   &:hover {
-    background-color: red;
+    background-color: rgba(125, 65, 38, 0.3);
   }
 `;
 
 const Img = styled.img`
   width: 100%;
   align-items: center;
-  /* margin-top: -2rem; */
+  border-radius: 50%;
 `;
 
 const CloseBtn = styled.button`
@@ -51,7 +52,7 @@ const SpeciesGender = styled.h2`
 export default function Card(props) {
   return (
     <DivCard>
-      <CloseBtn onClick={props.onClose}>X</CloseBtn>
+      <CloseBtn onClick={() => props.onClose(props.id)}>X</CloseBtn>
       <Img src={props.image} alt="" />
       {/* <h2>{props.id}</h2> */}
       <Name>{props.name}</Name>
@@ -60,7 +61,6 @@ export default function Card(props) {
         <SpeciesGender>{props.species}</SpeciesGender>
         <SpeciesGender>{props.gender}</SpeciesGender>
       </SpeciesGenderContainer>
-      {/* <h2>{props.origin}</h2> */}
     </DivCard>
   );
 }

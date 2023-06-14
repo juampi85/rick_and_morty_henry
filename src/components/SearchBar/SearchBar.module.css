@@ -1,12 +1,11 @@
 .divSearch {
-  margin-left: 60%;
-  background-color: #aaa;
+  background-color: rgba(128, 128, 128, 0.5);
   width: 40%;
   height: fit-content;
   padding: 0.95rem 0;
   display: flex;
   justify-content: space-around;
-  margin-bottom: 0.8rem;
+  border-radius: .25rem;
 }
 
 .inputSearch {

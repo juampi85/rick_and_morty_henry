@@ -3,12 +3,10 @@ import { styled } from 'styled-components';
 
 const DivCards = styled.div`
   display: flex;
-  justify-content: space-around;
-  /* border: 1px black solid; */
-  /* gap: 1rem; */
+  justify-content: center;
   flex-wrap: wrap;
 `;
-export default function Cards({ characters }) {
+export default function Cards({ characters, onClose }) {
   return (
     <DivCards>
       {characters.map((character) => {
@@ -22,8 +20,8 @@ export default function Cards({ characters }) {
             gender={character.gender}
             origin={character.origin.name}
             image={character.image}
-            // {...character} ---> esto reemplazaría TODO desde la fila 10 a 16
-            onClose={() => window.alert('Emulamos que se cierra la card')}
+            //* {...character} ---> esto reemplazaría TODO desde la fila 10 a 16
+            onClose={onClose}
           />
         );
       })}
