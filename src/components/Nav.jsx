@@ -1,6 +1,7 @@
 import React from 'react';
 import SearchBar from './SearchBar/SearchBar';
 import { styled } from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const NavStyled = styled.nav`
   width: 100%;
@@ -14,6 +15,9 @@ const NavStyled = styled.nav`
 const Nav = ({ onSearch }) => {
   return (
     <NavStyled >
+      <Link to='/home'><button>Home</button></Link>
+      <Link to='/about'><button>About</button></Link>
+      
       <SearchBar onSearch={onSearch} />
     </NavStyled>
   );

@@ -1,4 +1,6 @@
 import { styled } from 'styled-components';
+import { Link } from 'react-router-dom';
+
 
 const DivCard = styled.div`
   background-color: #c2c3c6;
@@ -55,11 +57,14 @@ export default function Card(props) {
       <CloseBtn onClick={() => props.onClose(props.id)}>X</CloseBtn>
       <Img src={props.image} alt="" />
       {/* <h2>{props.id}</h2> */}
-      <Name>{props.name}</Name>
+      <Link to={`/detail/${props.id}`}>
+        <Name>{props.name}</Name>
+      </Link>
       {/* <h2>{props.status}</h2> */}
       <SpeciesGenderContainer>
-        <SpeciesGender>{props.species}</SpeciesGender>
+        <SpeciesGender>Id: {props.id}</SpeciesGender>
         <SpeciesGender>{props.gender}</SpeciesGender>
+        <SpeciesGender>{props.species}</SpeciesGender>
       </SpeciesGenderContainer>
     </DivCard>
   );

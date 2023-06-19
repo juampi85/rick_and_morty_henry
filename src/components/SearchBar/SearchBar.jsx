@@ -8,6 +8,10 @@ export default function SearchBar({ onSearch }) {
     setId(event.target.value);
   };
 
+  const search = () => {
+    onSearch(id);
+    setId('');
+  }
 
   return (
     //?????????????????????????/
@@ -21,7 +25,7 @@ export default function SearchBar({ onSearch }) {
         value={id}
         onChange={handleChange}
       />
-      <button className={styles.buttonSearch} onClick={() => onSearch(id)}>
+      <button className={styles.buttonSearch} onClick={search}>
         Agregar
       </button>
       <button
