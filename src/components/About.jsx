@@ -1,10 +1,15 @@
 import React from 'react';
 import Juampi from '../images/juampi.jpg';
+import { styled } from 'styled-components';
 
+const AboutImg = styled.img`
+  height: 15rem;
+  border-radius: 50%;
+`
 const About = () => {
   return (
     <div>
-      <img src={Juampi} alt="Juampi tirando facha" />
+      <AboutImg src={Juampi} alt="Juampi tirando facha" />
     </div>
   );
 };

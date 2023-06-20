@@ -1,0 +1,80 @@
+.formContainer {
+  /* background-color: #e6e0e0; */
+  backdrop-filter: blur(100px);
+  height: fit-content;
+  width: 20rem;
+  margin: 0 auto;
+  margin-top: 6rem;
+  border-radius: 0.5rem;
+  border: 4px solid rgb(4, 233, 4);
+  display: flex;
+  justify-content: center;
+}
+
+.formImg {
+  width: 18rem;
+  border-radius: 50%;
+  padding-top: 1rem;
+}
+
+.formDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* margin-left: 2.5rem; */
+  padding-bottom: 0.25rem;
+}
+
+.formTitles {
+  font-weight: bolder;
+  /* color: #30f309; */
+  color: rgb(4, 233, 4);
+}
+
+.formBtn {
+  background-color: greenyellow;
+  padding: 0.5rem 1rem;
+  border-radius: 5rem;
+  margin-bottom: 1rem;
+  font-weight: bolder;
+  border: solid 4px rgb(4, 233, 4);
+
+  &:hover {
+    transform: scale(1.2);
+    color: rgb(33, 241, 14);
+    background-color: rgb(243, 13, 193);
+    border: solid 2px white;
+  }
+}
+
+.success {
+  border: green solid 4px;
+  width: 16rem;
+  font-weight: bolder;
+  margin-bottom: 1.3rem;
+  border-radius: 2.5rem;
+  padding: 0.5rem 0.5rem;
+  outline: none;
+  background-color: rgb(125, 196, 125);
+}
+
+.error {
+  border: red outset 4px;
+  font-weight: bolder;
+  color: rgba(255, 255, 255, 0.623);
+  width: 16rem;
+  margin-bottom: 1.3rem;
+  border-radius: 2.5rem;
+  padding: 0.5rem;
+  outline: none;
+  background-color: rgb(148, 103, 103);
+}
+
+.errorMsge {
+  color: white;
+  font-size: small;
+  font-style: italic;
+  font-weight: bolder;
+  margin-top: -1rem;
+  margin-bottom: 0.85rem;
+}

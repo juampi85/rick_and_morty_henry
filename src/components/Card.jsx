@@ -3,13 +3,12 @@ import { Link } from 'react-router-dom';
 
 
 const DivCard = styled.div`
-  background-color: #c2c3c6;
+  backdrop-filter: blur(90px);
   border-bottom-left-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   width: 15rem;
   position: relative;
-  margin: 1rem .5rem;
-
+  margin: 1rem 0.5rem;
 
   &:hover {
     background-color: rgba(125, 65, 38, 0.3);
@@ -49,6 +48,7 @@ const SpeciesGenderContainer = styled.div`
 
 const SpeciesGender = styled.h2`
   font-size: large;
+  color: white;
 `;
 
 export default function Card(props) {
@@ -56,11 +56,9 @@ export default function Card(props) {
     <DivCard>
       <CloseBtn onClick={() => props.onClose(props.id)}>X</CloseBtn>
       <Img src={props.image} alt="" />
-      {/* <h2>{props.id}</h2> */}
       <Link to={`/detail/${props.id}`}>
         <Name>{props.name}</Name>
       </Link>
-      {/* <h2>{props.status}</h2> */}
       <SpeciesGenderContainer>
         <SpeciesGender>Id: {props.id}</SpeciesGender>
         <SpeciesGender>{props.gender}</SpeciesGender>

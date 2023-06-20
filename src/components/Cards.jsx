@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 const DivCards = styled.div`
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap-reverse;
 `;
 export default function Cards({ characters, onClose }) {
   return (

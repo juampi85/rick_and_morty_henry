@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './SearchBar.module.css';
 
-export default function SearchBar({ onSearch }) {
+export default function SearchBar({ onSearch, closeAll }) {
   const [id, setId] = useState([]);
 
   const handleChange = (event) => {
@@ -21,7 +21,7 @@ export default function SearchBar({ onSearch }) {
       <input
         type="text"
         className={styles.inputSearch}
-        placeholder="id..."
+        placeholder="Ingrese el ID a agregar..."
         value={id}
         onChange={handleChange}
       />
@@ -33,6 +33,12 @@ export default function SearchBar({ onSearch }) {
         onClick={() => onSearch(Math.floor(Math.random() * 826) + 1)}
       >
         Agregar random
+      </button>
+      <button
+        className={styles.deleteAll}
+        onClick={closeAll}
+      >
+        Borrar todos
       </button>
     </div>
   );

@@ -1,5 +1,4 @@
 .divSearch {
-  background-color: rgba(128, 128, 128, 0.5);
   width: 40%;
   height: fit-content;
   padding: 0.95rem 0;
@@ -18,4 +17,18 @@
   background-color: #ffeb43;
   border-radius: 0.25rem;
   padding: 0.25rem 0.9rem;
+  font-weight: bolder;
+}
+
+.deleteAll {
+  background-color: #ec29a2;
+  border-radius: 0.5rem;
+  font-size: larger;
+  padding: 0.25rem 0.9rem;
+  font-weight: bolder;
+  color: #2dd60c;
+  font-style: italic;
+  &:hover {
+    transform: scale(1.3);
+  }
 }

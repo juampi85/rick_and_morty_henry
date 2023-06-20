@@ -7,7 +7,7 @@ import { styled } from 'styled-components';
 const DivDetail = styled.div`
   display: flex;
   justify-content: space-between;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(50px);
   width: 60%;
   height: auto;
   margin: 0 auto;
@@ -23,6 +23,7 @@ const TextDetail = styled.h3`
   line-height: 2.5rem;
   text-align: justify;
   padding: 0 0.65rem;
+  color: white;
 `
 function Detail() {
   const { id } = useParams();
