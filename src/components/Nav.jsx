@@ -51,13 +51,14 @@ const Nav = ({ onSearch, logOut, closeAll }) => {
     <NavStyled>
       <NavLogoutBtn onClick={logOut}>Log Out</NavLogoutBtn>
       <NavDivBtns>
-        {/* <Link to="/home"> */}
-        {/* </Link> */}
         <Link to="/home">
           <NavBtns>Home</NavBtns>
         </Link>
         <Link to="/about">
           <NavBtns>About</NavBtns>
+        </Link>
+        <Link to="/favorites">
+          <NavBtns>Favorites</NavBtns>
         </Link>
       </NavDivBtns>
       <SearchBar onSearch={onSearch} closeAll={closeAll} />

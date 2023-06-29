@@ -1,10 +1,24 @@
-export const validateEmail = (userData, setErrors, errors) => {
-  if (!userData.email) setErrors({ ...errors, email: 'Email vacío' });
+const regexEmail = /^\w{1,34}@[\w.-]+\.\w{3}$/;
+const regexPassword = /^(?=.*\d).{6,10}$/;
+
+export const validateForm = ({ email, password}) => {
+  const errors = {};
+  
+  if (!email) errors.email = 'Email vacío';
   else {
-    // if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3})+$/.test(userData.email)) {
-    if (/^\w{1,34}@[\w.-]+\.\w{3}$/.test(userData.email)) {
-      setErrors({ ...errors, email: '' });
+    if (regexEmail.test(email)) {
+      errors.email = '';
     } else
-      setErrors({ ...errors, email: 'Ingrese un email válido, por favor.' });
+      errors.email = 'Ingrese un email válido, por favor.';
+  }   
+
+  if(!password) errors.password = 'Ingrese el password.';
+  else {
+    if (regexPassword.test(password)) {
+      errors.password = '';
+    } else
+      errors.password = 'Ingrese un password válido, please.';
   }
+
+  return errors;
 };

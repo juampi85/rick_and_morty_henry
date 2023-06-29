@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import form_image from '../../images/form_image.jpg';
 import style from './Form.module.css';
-import { validateEmail } from '../validation';
+import { validateForm } from '../validation';
 
 // const validateEmail = (userData, setErrors, errors) => {
 //   if (!userData.email) setErrors({ ...errors, email: 'Email vacío' });
@@ -35,8 +35,7 @@ const Form = ({ login }) => {
     const value = event.target.value;
 
     setUserData({ ...userData, [property]: value });
-    validateEmail({ ...userData, [property]: value }, setErrors, errors);
-    // validatePass({ ...userData, [property]: value }, setErrors, errors);
+    setErrors(validateForm({ ...userData, [property]: value }));
   }
 
   const handleSubmit = (event) => {
@@ -80,6 +79,7 @@ const Form = ({ login }) => {
             onChange={handleChange}
             className={errors.password ? style.error : style.success}
           />
+          <span className={style.errorMsge}>{errors.password}</span>
         </div>
         <button className={style.formBtn} type="submit" onClick={handleSubmit}>
           SUBMIT

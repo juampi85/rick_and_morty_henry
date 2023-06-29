@@ -8,15 +8,15 @@ import About from './components/About';
 import Detail from './components/Detail';
 import Error404 from './components/Error404';
 import Form from './components/Form/Form';
-
+import Favorites from './components/Favorites/Favorites';
 
 function App() {
   const [characters, setCharacters] = useState([]);
   const location = useLocation();
   const [access, setAccess] = useState(false);
 
-  const EMAIL = '123@456.com';
-  const PASSWORD = '1397';
+  const EMAIL = 'juampi@gmail.com';
+  const PASSWORD = 'juampi85';
   const navigate = useNavigate();
 
   function login(userData) {
@@ -65,7 +65,6 @@ function App() {
     setCharacters([]);
   }
 
-
   return (
     <div className="App">
       {location.pathname !== '/' ? (
@@ -79,6 +78,7 @@ function App() {
         />
         <Route path="/about" element={<About />} />
         <Route path="/detail/:id" element={<Detail />} />
+        <Route path="/favorites" element={<Favorites />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
     </div>
