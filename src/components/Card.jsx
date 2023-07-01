@@ -7,8 +7,7 @@ import { useLocation } from 'react-router-dom';
 
 const DivCard = styled.div`
   backdrop-filter: blur(90px);
-  border-bottom-left-radius: 0.5rem;
-  border-bottom-right-radius: 0.5rem;
+  border-radius: 0.5rem;
   width: 15rem;
   position: relative;
   margin: 1rem 0.5rem;

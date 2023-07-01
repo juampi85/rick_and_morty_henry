@@ -1,7 +1,9 @@
-import { ADD_FAV, REMOVE_FAV } from './actions/action_types';
+import { ADD_FAV, REMOVE_FAV, FILTER, ORDER } from './actions/action_types';
 
 const initialState = {
-  myFavorites: [],
+  myFavorites: [], //? --> es lo que MOSTRAMOS en pantalla y donde filtramos y ordenamos los characters
+  allCharacters: [], //? --> es la copia de seguridad que NO se modifica 
+ 
 };
 
 const reducer = (state = initialState, action) => {
@@ -10,16 +12,42 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         myFavorites: [...state.myFavorites, action.payload],
+        allCharacters: [...state.allCharacters, action.payload],
       };
+
     case REMOVE_FAV:
+      let copy = state.myFavorites.filter((character) => parseInt(character.id) !== parseInt(action.payload, 10));
       return {
         ...state,
-        myFavorites: state.myFavorites.filter(
-          (fav) => fav.id !== parseInt(action.payload, 10) //? en vez de parsearlo podemos poner "!=" y sirve perfecto
-        ),
+        myFavorites: copy,
+        allCharacters: copy,
+      };
+
+    case FILTER:
+      // const allCharactersFiltered = state.allCharacters.filter(
+      //   (character) => character.gender === action.payload
+      // );
+      let copy2 = [...state.allCharacters];
+      let allCharactersFiltered = copy2.filter(
+        (character) => character.gender === action.payload
+      );
+      return {
+        ...state,
+        myFavorites:
+          action.payload === 'All' ? [...state.allCharacters] : allCharactersFiltered,
+      };
+
+    case ORDER:
+      const allCharactersCopy = [...state.allCharacters];
+      return {
+        ...state,
+        myFavorites:
+          action.payload === 'A'
+            ? allCharactersCopy.sort((a, b) => a.id - b.id)
+            : allCharactersCopy.sort((a, b) => b.id - a.id),
       };
     default:
-      return {...state};
+      return { ...state };
   }
 };
 

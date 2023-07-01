@@ -7,29 +7,27 @@ const NavStyled = styled.nav`
   width: 100%;
   height: fit-content;
   padding: 1rem 0;
-  /* backdrop-filter: blur(10px); */
   display: flex;
-  /* border: blue 4px solid; */
   justify-content: space-evenly;
+  align-items: center;
 `;
 
 const NavDivBtns = styled.div`
   display: flex;
   width: 20rem;
-  /* border: 4px orange solid; */
   justify-content: space-between;
   align-items: center;
 `;
 
 const NavLogoutBtn = styled.button`
   background-color: #ec29a2;
-  border-radius: 2.5rem;
+  border-radius: 15px;
   border: solid 2px #2dd60c;
-  padding: 0.75rem 1.5rem;
-  /* height: fit-content; */
+  padding: 1rem;
+  height: fit-content;
   font-weight: bolder;
   color: #2dd60c;
-  font-size: large;
+  font-size: larger;
   &:hover {
     color: #ec29a2;
     background: #2dd60c;

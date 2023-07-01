@@ -1,0 +1,36 @@
+.divSelect {
+  margin-top: -1rem;
+}
+
+
+.divFavorites {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap-reverse;
+}
+
+.selectFavorites {
+  cursor: pointer;
+  padding: .25rem;
+  border-radius: .5rem;
+  background: none;
+  border: solid 2px rgb(3, 255, 3);
+  backdrop-filter: blur(90px);
+  color: yellow;
+  font-weight: bolder;
+  font-size: medium;
+
+  &:first-child {
+    margin-right: .5rem;
+  }
+  &:last-child {
+    margin-left: .5rem;
+  }
+}
+
+.optionFavorites {
+  background-color: grey;
+  /* color: rgb(3, 255, 3); */
+  font-weight: 600;
+  &:
+}

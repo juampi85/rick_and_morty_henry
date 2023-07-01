@@ -3,26 +3,6 @@ import form_image from '../../images/form_image.jpg';
 import style from './Form.module.css';
 import { validateForm } from '../validation';
 
-// const validateEmail = (userData, setErrors, errors) => {
-//   if (!userData.email) setErrors({ ...errors, email: 'Email vacío' });
-//   else {
-//     // if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{3})+$/.test(userData.email)) {
-//     if (/^\w{1,34}@[\w.-]+\.\w{3}$/.test(userData.email)) {
-//       setErrors({ ...errors, email: '' });
-//     } else
-//       setErrors({ ...errors, email: 'Ingrese un email válido, por favor.' });
-//   }
-// };
-
-// const validatePass = (userData, setErrors, errors) => {
-//   if (!userData.password) setErrors({ ...errors, password: 'Password vacía' });
-//   else {
-//     if (/^(?=.*\d).{6,10}$/.test(userData.password))
-//       setErrors({ ...errors, password: '' });
-//     else setErrors({ ...errors, password: 'Ingrese una password válida.' });
-//   }
-// }
-
 
 
 const Form = ({ login }) => {
@@ -71,7 +51,7 @@ const Form = ({ login }) => {
             PASSWORD
           </label>
           <input
-            type="password"
+              type="password"
             name="password"
             id=""
             placeholder="Password..."
