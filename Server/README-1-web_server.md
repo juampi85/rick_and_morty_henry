@@ -41,7 +41,8 @@ Dirígete al directorio en el que tienes tu proyecto **`Rick & Morty`** y ábrel
    -  Una carpeta llamada **`routes`**.
    -  Una carpeta llamada **`utils`**.
 
-4. Copia el archivo [**data.js**](./data.js) que se encuentra en esta carpeta y pégalo dentro de tu pryecto en la carpeta **utils**.
+4. Copia el archivo [**data.js**](./data.js) que se encuentra en la carpeta 02 - Integration y pégalo dentro de tu pro
+yecto en la carpeta **utils**.
 
 </br >
 
