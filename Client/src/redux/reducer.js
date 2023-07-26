@@ -9,13 +9,13 @@ const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_FAV:
       return {
-        ...state,
+        ...state, //* esta COPIA del state es OBLIGATORIA cuando tenemos + de 1 propiedad (en este caso "myFavorites y allCharacters")
         myFavorites: [...state.myFavorites, action.payload],
         allCharacters: [...state.allCharacters, action.payload],
       };
 
     case REMOVE_FAV:
-      let copy = state.myFavorites.filter(
+      let copy = state.allCharacters.filter( //* solucion Ale
         (character) => parseInt(character.id) !== parseInt(action.payload, 10)
       );
       return {
@@ -25,50 +25,24 @@ const reducer = (state = initialState, action) => {
       };
 
     case FILTER:
-      // // const allCharactersFiltered = state.allCharacters.filter(
-      // //   (character) => character.gender === action.payload
-      // // );
-      // let copy2 = [...state.allCharacters];
-      // let allCharactersFiltered = copy2.filter(
-      //   (character) => character.gender === action.payload
-      // );
-      // return {
-      //   ...state,
-      //   myFavorites:
-      //     action.payload === 'All' ? [...state.allCharacters] : allCharactersFiltered,
-      // };
-      let allCharactersFiltered = [];
-
-      if (action.payload === 'All') {
-        allCharactersFiltered = [...state.allCharacters];
-      } else {
-        allCharactersFiltered = state.allCharacters.filter(
-          (character) => character.gender === action.payload
-        );
-      }
-
+      let copy2 = [...state.allCharacters];
+      let filterGender = copy2.filter(
+        (character) => character.gender === action.payload
+      );
       return {
         ...state,
-        myFavorites: allCharactersFiltered,
+        myFavorites: action.payload === 'All' ? [...state.allCharacters] : filterGender,
       };
+   
 
     case ORDER:
-      // const allCharactersCopy = [...state.allCharacters];
-      // return {
-      //   ...state,
-      //   myFavorites:
-      //     action.payload === 'A'
-      //       ? allCharactersCopy.sort((a, b) => a.id - b.id)
-      //       : allCharactersCopy.sort((a, b) => b.id - a.id),
-      // };
-      const myFavoritesCopy = [...state.myFavorites];
-
+      const copy3 = [...state.myFavorites]; //* solucion mía
       return {
         ...state,
         myFavorites:
           action.payload === 'A'
-            ? myFavoritesCopy.sort((a, b) => a.id - b.id)
-            : myFavoritesCopy.sort((a, b) => b.id - a.id),
+            ? copy3.sort((a, b) => a.id - b.id)
+            : copy3.sort((a, b) => b.id - a.id),
       };
 
     default:

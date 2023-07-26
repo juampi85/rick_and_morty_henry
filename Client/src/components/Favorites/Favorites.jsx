@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
-import { connect, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Card from '../Card';
 import { filterCards, orderCards } from '../../redux/actions/actions';
 import style from './Favorites.module.css'
 
 
-// const Favorites = ({myFavorites}) => {
 const Favorites = () => {
   const [aux, setAux] = useState(false)
   const dispatch = useDispatch();
@@ -20,11 +19,13 @@ const Favorites = () => {
     dispatch(filterCards(event.target.value)); 
   };
 
-
   return (
     <>
       <div className={style.divSelect}>
         <select onChange={handleOrder} className={style.selectFavorites}>
+          {/* <option value={null} className={style.optionFavorites}>
+            Elija la opción
+          </option> */}
           <option value="A" className={style.optionFavorites}>
             Ascendente
           </option>
@@ -33,6 +34,9 @@ const Favorites = () => {
           </option>
         </select>
         <select onChange={handleFilter} className={style.selectFavorites}>
+          {/* <option value={null} className={style.optionFavorites}>
+            Elija el género
+          </option> */}
           <option value="Male" className={style.optionFavorites}>
             Male
           </option>
@@ -71,14 +75,3 @@ const Favorites = () => {
 };
 
 export default Favorites;
-
-//***************************************/
-//* LO REEMPLAZAMOS CON UN USESELECT() *//
-//***************************************/
-// function mapStateToProps(state) {
-//   return {
-//     myFavorites: state.myFavorites,
-//   };
-// }
-
-// export default connect(mapStateToProps)(Favorites);

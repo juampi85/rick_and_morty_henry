@@ -53,17 +53,17 @@ const SpeciesGender = styled.h2`
   color: white;
 `;
 
-function Card({onClose, id, image, name, gender, species, addFav, removeFav, myFavorites,...props}) {
+function Card({onClose, id, image, name, gender, species, addFav, removeFav, allCharacters,...props}) {
   const {pathname} = useLocation();
   const [isFav, setIsFav] = useState(false);
 
   useEffect(() => {
-    myFavorites.forEach((charFav) => {
+    allCharacters.forEach((charFav) => {
       if (charFav.id === id) {
         setIsFav(true);
       }
     });
-  }, [myFavorites]);
+  }, [allCharacters]);
 
 
   const handleFavorite = () => {
@@ -99,7 +99,7 @@ function Card({onClose, id, image, name, gender, species, addFav, removeFav, myF
 
 function mapStateToProps(state) {
   return {
-    myFavorites: state.myFavorites,
+    allCharacters: state.allCharacters,
   };
 }
 
