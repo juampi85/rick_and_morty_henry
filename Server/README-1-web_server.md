@@ -128,4 +128,4 @@ Ahora comprobaremos que todo funciona correctamente. Para esto:
 
 </br >
 
-<img src="./img/example.gif" alt="" />
+<img src="../Client/img/example-web_server.gif" alt="" />
