@@ -50,12 +50,6 @@ useEffect(() => {
         <ImgDetail src={image} alt={name} />
       </span>
       <span>
-        {/* <h3>Id: {id}</h3>
-        <h2>{name}</h2>
-        <h4>{status}</h4>
-        <h4>{species}</h4>
-        <h4>{gender}</h4>
-        <h4>{origin?.name}</h4> */}
         <TextDetail>{name} es un valiente {species} proveniente de la historieta de Rick and Morty. A pesar de los desafíos que ha enfrentado, y siendo {gender}, su espíritu sigue {status}, demostrando así su increíble resistencia y determinación. Con su habilidad única y su valentía, {name} ha dejado una huella imborrable en la historia de Rick and Morty.</TextDetail>
       </span>
     </DivDetail>

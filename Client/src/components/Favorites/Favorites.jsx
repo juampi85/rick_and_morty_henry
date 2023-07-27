@@ -23,9 +23,6 @@ const Favorites = () => {
     <>
       <div className={style.divSelect}>
         <select onChange={handleOrder} className={style.selectFavorites}>
-          {/* <option value={null} className={style.optionFavorites}>
-            Elija la opción
-          </option> */}
           <option value="A" className={style.optionFavorites}>
             Ascendente
           </option>
@@ -34,9 +31,6 @@ const Favorites = () => {
           </option>
         </select>
         <select onChange={handleFilter} className={style.selectFavorites}>
-          {/* <option value={null} className={style.optionFavorites}>
-            Elija el género
-          </option> */}
           <option value="Male" className={style.optionFavorites}>
             Male
           </option>

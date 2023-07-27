@@ -5,33 +5,30 @@ const initialState = {
   allCharacters: [], //? --> es la copia de seguridad que NO se modifica
 };
 
-const reducer = (state = initialState, action) => {
-  switch (action.type) {
+const reducer = (state = initialState, {type, payload}) => {
+  switch (type) {
     case ADD_FAV:
       return {
         ...state, //* esta COPIA del state es OBLIGATORIA cuando tenemos + de 1 propiedad (en este caso "myFavorites y allCharacters")
-        myFavorites: [...state.myFavorites, action.payload],
-        allCharacters: [...state.allCharacters, action.payload],
+        myFavorites: payload,
+        allCharacters: payload,
       };
 
     case REMOVE_FAV:
-      let copy = state.allCharacters.filter( //* solucion Ale
-        (character) => parseInt(character.id) !== parseInt(action.payload, 10)
-      );
       return {
         ...state,
-        myFavorites: copy,
-        allCharacters: copy,
+        myFavorites: payload,
+        allCharacters: payload,
       };
 
     case FILTER:
       let copy2 = [...state.allCharacters];
       let filterGender = copy2.filter(
-        (character) => character.gender === action.payload
+        (character) => character.gender === payload
       );
       return {
         ...state,
-        myFavorites: action.payload === 'All' ? [...state.allCharacters] : filterGender,
+        myFavorites: payload === 'All' ? [...state.allCharacters] : filterGender,
       };
    
 
@@ -40,7 +37,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         myFavorites:
-          action.payload === 'A'
+          payload === 'A'
             ? copy3.sort((a, b) => a.id - b.id)
             : copy3.sort((a, b) => b.id - a.id),
       };

@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const NavStyled = styled.nav`
   width: 100%;
   height: fit-content;
-  padding: 1rem 0;
+  padding: .25rem 0;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -23,7 +23,7 @@ const NavLogoutBtn = styled.button`
   background-color: #ec29a2;
   border-radius: 15px;
   border: solid 2px #2dd60c;
-  padding: 1rem;
+  padding: .5rem .75rem;
   height: fit-content;
   font-weight: bolder;
   color: #2dd60c;
@@ -42,6 +42,9 @@ const NavBtns = styled.button`
   border-radius: 0.5rem;
   padding: 0.75rem 1.9rem;
   font-weight: bolder;
+  &:hover {
+    transform: scale(1.15);
+  }
 `;
 
 const Nav = ({ onSearch, logOut, closeAll }) => {

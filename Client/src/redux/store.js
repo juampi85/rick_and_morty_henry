@@ -6,7 +6,7 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 
 const store = createStore(
   reducer,
-  composeWithDevTools(applyMiddleware(thunk)) // esta línea es para poder hacer peticiones a un server
+  composeWithDevTools(applyMiddleware(thunk)) //* esta línea es para poder hacer peticiones a un server
 );
 
 export default store;

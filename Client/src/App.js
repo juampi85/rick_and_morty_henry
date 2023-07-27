@@ -14,18 +14,17 @@ function App() {
   const [characters, setCharacters] = useState([]);
   const location = useLocation();
   const [access, setAccess] = useState(false);
-
-  const EMAIL = 'juampi@gmail.com';
-  const PASSWORD = 'juampi85';
   const navigate = useNavigate();
 
   function login(userData) {
-    if (userData.password === PASSWORD && userData.email === EMAIL) {
-      setAccess(true);
-      navigate('/home');
-    } else {
-      alert('El usuario y/o contraseña NO son correctos');
-    }
+    const { email, password } = userData;
+    const URL = 'http://localhost:3001/rickandmorty/login/';
+    axios(URL + `?email=${email}&password=${password}`)
+      .then(({ data }) => { //* es IGUAL a .then(response => response.data) --> .then( data => .....)
+      const { access } = data;
+      setAccess(access);
+      access && navigate('/home');
+    });
   }
 
   useEffect(() => {
@@ -67,9 +66,11 @@ function App() {
 
   return (
     <div className="App">
-      {location.pathname !== '/' ? (
+      {location.pathname !== '/'
+        ? (
         <Nav onSearch={onSearch} logOut={logOut} closeAll={closeAll} />
-      ) : null}
+        )
+        : null}
       <Routes>
         <Route path="/" element={<Form login={login} />} />
         <Route

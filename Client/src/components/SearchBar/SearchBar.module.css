@@ -11,7 +11,7 @@
   border-radius: 0.25rem;
   width: 65%;
   padding: 0.25rem 0.5rem;
-  background-color: transparent;
+  background-color: #dff0a1;
 }
 
 .buttonSearch {
@@ -19,6 +19,9 @@
   border-radius: 0.25rem;
   padding: 0.25rem 0.9rem;
   font-weight: bolder;
+  &:hover {
+    transform: scale(1.15);
+  }
 }
 
 .deleteAll {

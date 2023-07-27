@@ -5,12 +5,11 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* background-image: url('https://c4.wallpaperflare.com/wallpaper/324/220/8/cielo-naturaleza-nubes-rojo-wallpaper-preview.jpg'); */
-  background-image: url('https://i.pinimg.com/originals/61/de/2b/61de2ba956418acd9ab454ceca15bbb2.jpg');
+  background-image: url('https://images3.alphacoders.com/812/thumbbig-812062.webp');
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
-  background-position: center;
+  background-position: bottom;
 }
 
 code {

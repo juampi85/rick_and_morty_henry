@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 
 const DivCard = styled.div`
-  backdrop-filter: blur(90px);
+  background-color: rgba(241, 10, 145, 0.8);
   border-radius: 0.5rem;
   width: 15rem;
   position: relative;
@@ -38,14 +38,14 @@ const Name = styled.h2`
   margin: 0 auto;
   font-size: small;
   position: absolute;
-  bottom: 5.7rem;
+  bottom: 3.7rem;
   left: 1rem;
 `;
 
 const SpeciesGenderContainer = styled.div`
   display: flex;
   justify-content: space-around;
-  padding-bottom: 1.5rem;
+  padding-bottom: .5rem;
 `;
 
 const SpeciesGender = styled.h2`
@@ -111,5 +111,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Card);
-
-// export default Card;
