@@ -3,7 +3,6 @@ const URL = 'https://rickandmortyapi.com/api/character';
 
 const getCharById = (req, res) => {
   const { id } = req.params;
-  // const id = parseInt(req.params.id);
 
   axios(`${URL}/${id}`)
     .then((response) => response.data)

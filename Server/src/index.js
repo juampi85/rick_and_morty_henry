@@ -1,7 +1,7 @@
 const express = require('express');
 const router = require('./routes/index');
 const morgan = require('morgan');
-// const cors = require('cors');
+//* const cors = require('cors'); --> acá importamos los CORS para utilizarlos debajo
 
 const server = express();
 const PORT = 3001;
