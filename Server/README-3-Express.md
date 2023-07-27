@@ -176,7 +176,7 @@ Llegó el momento para conectar nuestro nuevo servidor con nuestro Front-End. Pa
       const URL = 'http://localhost:3001/rickandmorty/login/';
       axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
          const { access } = data;
-         setAccess(data);
+         setAccess(access);
          access && navigate('/home');
       });
    }
