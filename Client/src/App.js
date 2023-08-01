@@ -16,15 +16,17 @@ function App() {
   const [access, setAccess] = useState(false);
   const navigate = useNavigate();
 
-  function login(userData) {
+  const login = async (userData) => {
     const { email, password } = userData;
     const URL = 'http://localhost:3001/rickandmorty/login/';
-    axios(URL + `?email=${email}&password=${password}`)
-      .then(({ data }) => { //* es IGUAL a .then(response => response.data) --> .then( data => .....)
-      const { access } = data;
-      setAccess(access);
-      access && navigate('/home');
-    });
+    try {
+      const { data } = await axios(`${URL}?email=${email}&password=${password}`)
+        const { access } = data;
+        setAccess(access);
+        access && navigate('/home');
+    } catch (error) {
+      alert('La pifiaste feo, perro... Revisá tus credenciales y volvé humildemente...')
+    }
   }
 
   useEffect(() => {
@@ -36,28 +38,29 @@ function App() {
     setAccess(false);
   }
 
-  function onSearch(id) {
-    if (!id) alert('Debe ingresar un ID...');
+  async function onSearch(id) {
+    try {
+      if (!id) return alert('Debe ingresar un ID...');
 
-    if (characters.find((char) => char.id === parseInt(id))) {
-      alert(`Ya existe el personaje con el id ${id}`);
-    } else {
-      axios(`http://localhost:3001/rickandmorty/character/${id}`)
-        .then(({ data }) => {
-          if (data.name) {
-            setCharacters((oldChars) => [...oldChars, data]);
-          }
-        })
-        .catch((err) =>
-          alert(
-            `${err.response.data.error} --> traducción: le pifiaste al ID...`
-          )
+      if (characters.find((char) => char.id === id)) {
+        alert(`Ya existe el personaje con el id ${id}`);
+      } else {
+        const { data } = await axios(
+          `http://localhost:3001/rickandmorty/character/${id}`
         );
+        if (data.name) {
+          setCharacters((oldChars) => [...oldChars, data]);
+        }
+      }
+    } catch (error) {
+      alert(
+        `${error.response.data.error} --> traducción: le pifiaste al ID...`
+      );
     }
   }
 
   const onClose = (id) => {
-    setCharacters(characters.filter((char) => char.id !== parseInt(id)));
+    setCharacters(characters.filter((char) => char.id !== id));
   };
 
   function closeAll() {
@@ -66,11 +69,9 @@ function App() {
 
   return (
     <div className="App">
-      {location.pathname !== '/'
-        ? (
+      {location.pathname !== '/' ? (
         <Nav onSearch={onSearch} logOut={logOut} closeAll={closeAll} />
-        )
-        : null}
+      ) : null}
       <Routes>
         <Route path="/" element={<Form login={login} />} />
         <Route
