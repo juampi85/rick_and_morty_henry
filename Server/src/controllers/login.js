@@ -1,15 +1,25 @@
-const users = require('../utils/users');
+const { User } = require('../DB_connection');
 
-const login = (req, res) => {
-  const { email, password } = req.query;
+const login = async (req, res) => {
+  try {
+    const { email, password } = req.query;
 
-  const userFound = users.find(
-    (user) => user.email === email && user.password === password
-  );
+    if (!email || !password) return res.status(400).send('Faltan datos');
 
-  return userFound //* poniendo el RETURN acá es como si hiciéramos un IF colocando el RETURN ante cada respuesta
-    ? res.status(200).json({ access: true })
-    : res.status(403).json({ access: false }); //* si bien pedían un STATUS 200 es más preciso/correcto colocar un STATUS 403
+    const user = await User.findOne({
+      where: {
+        email, //* esto es IGUAL a colocar email: email por OBJECT LITERAL
+      },
+    });
+
+    if (!user) return res.status(404).send('Usuario no encontrado');
+
+    return user.password === password
+      ? res.status(200).json({ access: true })
+      : res.status(401).send('Contraseña incorrecta'); //* acá cambié el STATUS a 401 porque corresponde a UNAUTHORIZED
+  } catch (error) {
+    returnres.status(500).json({ error: error.message });
+  }
 };
 
 module.exports = login;
